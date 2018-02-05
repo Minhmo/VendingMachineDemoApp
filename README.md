@@ -2,7 +2,8 @@
 
 ### Usage instructions
 - Make sure node.js is installed on your machine.
-- For running use `mvn clean install` on 'parent' project, following with `java -jar ./target/bl-0.0.1-SNAPSHOT.jar` on 'bl' project, if working from command line, if using Idea (or other IDE), simply set up spring boot running config.
+- For running use `mvn clean install` on 'parent' project. This will install node modules and emit bundle.
+- Then proceed with `mvn clean install` on 'fe' following with `java -jar ./target/bl-0.0.1-SNAPSHOT.jar` on 'bl' project, if working from command line, if using Idea (or other IDE), simply set up spring boot running config.
 - Page is now accessible  by url "http://localhost:8090/index.html".
 
 ### About
