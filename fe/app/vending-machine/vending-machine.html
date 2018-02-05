@@ -1,0 +1,36 @@
+<p>I am the vending machine Angularjs component! Please insert money.</p>
+<form name="vendingMachineForm">
+    <div class="form-group row">
+        <label for="machineSelect" class="col-sm-2 col-form-label">Product</label>
+        <select id="machineSelect" class="col-sm-10 custom-select custom-select-md mb-3 form-control"
+                name="singleSelect" ng-model="machine.price">
+            <option ng-repeat="option in machine.options" ng-value="option.price">{{option.name + " " + option.price}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="machineMoneyInput" class="col-sm-2 col-form-label">Money</label>
+        <input id="machineMoneyInput" class="col-sm-10 form-control" type="number" name="machineMoneyInput"
+               ng-model="machine.moneyValue" ng-pattern="/^[0-9]+$/"
+               ng-model-options="{ debounce: 600 }" step="1"/>
+        <div class="invalid col-sm-10 offset-sm-2" ng-show="!vendingMachineForm.machineMoneyInput.$valid">
+            The number supplied is invalid!
+        </div>
+    </div>
+    <div class="form-group row" ng-show="machine.moneyValue && machine.price">
+        <label class="col-sm-2 col-form-label">Your change</label>
+        <div class="col-sm-10">
+            <p> {{machine.calculateChange(machine.moneyValue, machine.price)}}</p>
+        </div>
+    </div>
+    <div class="form-group row" ng-show="machine.changeFromServer">
+        <label class="col-sm-2 col-form-label">Your change (from server)</label>
+        <div class="col-sm-10">
+            <p> {{machine.changeFromServer}}</p>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4" ng-click="machine.askServerChange(machine.moneyValue)" ng-disabled="vendingMachineForm.$pristine || vendingMachineForm.$submited">Ask server?</button>
+
+</form>
+
