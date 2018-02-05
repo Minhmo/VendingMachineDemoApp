@@ -1,3 +1,7 @@
+/**
+ * test if vending machine service defined
+ * test if vending machine service calculates correct change.
+ */
 describe('Vending machine service', function () {
     let serv;
 

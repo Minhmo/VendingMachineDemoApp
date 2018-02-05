@@ -22,8 +22,8 @@ function VendingMachineController($scope, VendingMachineService) {
     ctrl.calculateChange = VendingMachineService.calculateChange;
     ctrl.askServerChange = askServerChange;
 
-    ctrl.options = [new VendingMachineOption(52, 'Cola'), new VendingMachineOption(34, 'Fanta'),
-        new VendingMachineOption(11, 'Vytautas')];
+    ctrl.options = [new VendingMachineOption(53, 'Cola'), new VendingMachineOption(21, 'Fanta'),
+        new VendingMachineOption(15, 'Vytautas')];
 
     function askServerChange() {
         VendingMachineService.askServer(ctrl.moneyValue, ctrl.price).then(r => {

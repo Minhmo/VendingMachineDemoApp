@@ -27,7 +27,7 @@ public class VendingMachineController {
         Map<String, Long> change = coinService.getChange(price, money);
 
         ChangeResult changeResult = new ChangeResult();
-        if(change == null) {
+        if (change == null) {
             changeResult.setResult("too little money inserted...");
             changeResult.setSuccess(false);
         } else {
@@ -40,6 +40,7 @@ public class VendingMachineController {
 
     /**
      * Method, that concatenates map to string representation of coins.
+     *
      * @param result map, that contains information about change.
      * @return string, that contains information about change.
      */
@@ -53,7 +54,7 @@ public class VendingMachineController {
             if (value == 0) continue;
 
             stringBuilder.append(value);
-            stringBuilder.append(" coins of ");
+            stringBuilder.append(value == 1 ? " coin of " : " coins of ");
             stringBuilder.append(key);
             stringBuilder.append(" c. , ");
         }

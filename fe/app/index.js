@@ -1,26 +1,11 @@
-// var greeter = require('./greeter');
-//
-// var greeting = greeter.greet();
-//
-// if (typeof document !== 'undefined') {
-//     var el = document.createElement('h1');
-//     el.innerHTML = greeting;
-//     document.body.appendChild(el);
-// } else {
-//     console.log(greeting);
-// }
-
-// import angular from 'angular';
-
+// bootstrap dependencies.
 import 'jquery'
 import 'popper.js'
 import 'bootstrap/scss/bootstrap.scss'
-
-
+// application styles.
 import '../style/app.scss';
-import "../styles.css";
 
-
+// init angular application.
 require('./angular-app.js');
 
 

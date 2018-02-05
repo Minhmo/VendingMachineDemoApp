@@ -30,7 +30,8 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-4" ng-click="machine.askServerChange(machine.moneyValue)" ng-disabled="vendingMachineForm.$pristine || vendingMachineForm.$submited">Ask server?</button>
+    <button type="submit" class="btn btn-primary mt-4" ng-click="machine.askServerChange(machine.moneyValue)"
+            ng-disabled="vendingMachineForm.$pristine || vendingMachineForm.$submitted || vendingMachineForm.$invalid ">Ask server?</button>
 
 </form>
 

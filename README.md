@@ -1,8 +1,13 @@
 # VendingMachineDemoApp
 
-### Usage instructions:
-- Make sure node is installed.
-- For running use mvn clean install on parent, following with java -jar ./target/bl-0.0.1-SNAPSHOT.jar on bl, if working from command line. If using Idea, simply set up spring boot run config.
+### Usage instructions
+- Make sure node.js is installed on your machine.
+- For running use `mvn clean install` on 'parent' project, following with `java -jar ./target/bl-0.0.1-SNAPSHOT.jar` on 'bl' project, if working from command line, if using Idea (or other IDE), simply set up spring boot running config.
 
 ### About
-The app is devided into two modules: frontend (fe) and business logic (bl). Frontend is bundled using Webpack. All required dependencies must be collected via npm.
+The app is devided into two modules: **frontend (fe)** and **business logic (bl)**, **parent** is only a helper for packaging. All required dependencies must be collected via **npm**.
+- Frontend is bundled using Webpack and Maven plugin to init Webpack bundling and uglify bundle. So the whole output of 'fe' project is single minified `app-bundle.js` file. 
+- Backend is based on Java Spring Boot.
+
+Both 'fe' and 'bl' projects contains tests. 
+For 'bl' tests use Spring Boot testing configuration, for 'fe' testing use `npm test`.

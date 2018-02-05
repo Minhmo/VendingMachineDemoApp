@@ -37,7 +37,7 @@ function VendingMachineService($http) {
             return lastResult;
         }
 
-        // chache'ing change value, not repeating calculations if not needed.
+        // chache change value, not repeating calculations if not needed.
         lastChange = change;
 
         if (change < 0) {
@@ -50,6 +50,7 @@ function VendingMachineService($http) {
         let result = "";
 
         angular.forEach(VendingMachineService.availableCoins, coin => {
+            // do not calculate if change is resolved.
             if (change === 0) {
                 return;
             }
@@ -61,10 +62,11 @@ function VendingMachineService($http) {
                 return;
             }
 
-            result = result.concat(div.toString(), " coin of ", coin.toString(), " c. , ")
+            result = result.concat(div.toString(), div === 1 ? " coin of " : " coins of ",
+                coin.toString(), " c. , ")
         });
 
-        // getting rid of last semmi.
+        // getting rid of last semicolon.
         if (result.endsWith(', ')) {
             result = result.substring(0, result.lastIndexOf(", "));
         }
@@ -81,7 +83,7 @@ function VendingMachineService($http) {
      * @param price of the product
      */
     function askServer(money, price) {
-        return $http.get('/machine/getChange', { params: {money: money, price: price} })
+        return $http.get('/machine/getChange', {params: {money: money, price: price}})
             .then(getChangeComplete)
             .catch(getChangeFailed);
 
